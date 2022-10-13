@@ -1,0 +1,38 @@
+extends layout 
+
+block layout-content 
+  section#n
+    h2#newsSection_title News from #{c_name}
+    #news_card
+      ul
+        each n in n_data.articles
+          li
+            img(src=`${n.urlToImage}` alt)
+            #news_info
+              a(href=`${n.url}`)#news_title #{n.title}
+              p#news_desc.
+
+                #{n.description}
+
+  //  weather and tweet 
+  section#w_t
+    h2#weather_title Weather in #{c_name}
+    #weather_card
+      #w_info
+        #w_icon
+          img(src=`http://openweathermap.org/img/wn/${w_data.weather[0].icon}@2x.png` alt='sunny')
+          p #{w_data.weather[0].main}
+        #temp
+          p#actual_temp
+            | #{w_data.main.temp}
+            span °
+          p#feels_temp
+            | Feels like #{w_data.main.feels_like}
+            span °
+        p#w_speed Wind speed #{w_data.wind.speed}m/s
+    h2#tweet_title Trending on Twitter from #{c_name}
+    #tweet_card
+      ul
+      each t in t_data
+        li
+          a(href=`${t.url}`) #{t.name}

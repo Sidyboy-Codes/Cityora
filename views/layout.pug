@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible' content='IE=edge')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0')
+    link(rel='stylesheet' href='style.css')
+    title Cityora
+  body
+    // header: containing header img and search button
+    header
+      #logo
+        a(href='/') Cityora
+        p Latest happing in Town
+      form(action='/cityname' method='get')
+        // <label for="c_name">Select City</label>
+        #search_city
+          select#c_name(name='c_name')
+            option(value='' selected='' disabled='') Select a city
+            option(value='toronto') Toronto
+            option(value='vancouver') Vancouver
+            option(value='new york') New York
+            option(value='mumbai') Mumbai
+          button(type='submit')
+            span.material-symbols-outlined  travel_explore 
+    // results section
+    main
+      block layout-content
